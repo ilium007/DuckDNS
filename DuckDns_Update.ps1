@@ -32,7 +32,7 @@ $LogRespKO = $null		;	$LogRespOK = $null	;	$LogTxtURL = $null
 		
 	# If the domain does not exist, the script will stop and Log and error!
 	try {
-		$Dig_IP = $(Resolve-DnsName $DuckDomainDNS_Check -TcpOnly -ErrorAction SilentlyContinue -ErrorVariable ProcessError).IPAddress
+		$Dig_IP = $(Resolve-DnsName $DuckDomainDNS_Check -ErrorAction SilentlyContinue -ErrorVariable ProcessError).IPAddress
 			# Giving some time for the DNS resolution to take place (2s).
 			# Sleep 1
 		If ($ProcessError) { $Log_Try = "`n`n`t Error in DNS Request: $ErrorMessage `t ProcessError = $ProcessError`n`n`t Retrying...`n`n`t"
