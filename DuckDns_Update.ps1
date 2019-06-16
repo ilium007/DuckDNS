@@ -49,10 +49,7 @@ $LogRespKO = $null		;	$LogRespOK = $null	;	$LogTxtURL = $null
 			}
 		
 	$ChkIpUrl = "ifconfig.me/ip"
-	$WebRequest = (Invoke-WebRequest $ChkIpUrl).Content.Trim()
-	# Giving some time for the DNS resolution to take place (2s).
-	Sleep 2
-	$MyWAN_IP=$($WebRequest.ParsedHtml.body.innerHtml).Split(":")[1].Trim()
+	$MyWAN_IP = (Invoke-WebRequest $ChkIpUrl).Content.Trim()
 
 	# Debug info after 1 attempt
 	if ($retries -gt 1) {
