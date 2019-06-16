@@ -48,10 +48,10 @@ $LogRespKO = $null		;	$LogRespOK = $null	;	$LogTxtURL = $null
 				break
 			}
 		
-	$ChkIpUrl = (Invoke-WebRequest ifconfig.me/ip).Content.Trim()
-	$WebRequest = Invoke-WebRequest $ChkIpUrl
-		# Giving some time for the DNS resolution to take place (2s).
-		# Sleep 1
+	$ChkIpUrl = "ifconfig.me/ip"
+	$WebRequest = (Invoke-WebRequest $ChkIpUrl).Content.Trim()
+	# Giving some time for the DNS resolution to take place (2s).
+	Sleep 2
 	$MyWAN_IP=$($WebRequest.ParsedHtml.body.innerHtml).Split(":")[1].Trim()
 
 	# Debug info after 1 attempt
