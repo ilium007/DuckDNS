@@ -48,7 +48,7 @@ $LogRespKO = $null		;	$LogRespOK = $null	;	$LogTxtURL = $null
 				break
 			}
 		
-	$ChkIpUrl = "http://checkip.dyndns.com"
+	$ChkIpUrl = (Invoke-WebRequest ifconfig.me/ip).Content.Trim()
 	$WebRequest = Invoke-WebRequest $ChkIpUrl
 		# Giving some time for the DNS resolution to take place (2s).
 		# Sleep 1
